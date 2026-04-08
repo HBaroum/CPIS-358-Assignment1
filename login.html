@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudySync - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>StudySync</h1>
+    </header>
+
+    <nav class="menu">
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
+        <a href="about.html">About Us</a>
+    </nav>
+
+    <section class="form-container">
+        <h2>Login</h2>
+
+        <form onsubmit="return loginMessage()">
+            <label for="Student ID">Student ID:</label>
+            <input type="number" id="Student ID" placeholder="Enter your Student ID" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+
+            <!-- Inline CSS -->
+            <button type="submit" style="background-color: #2d89ef; color: white;">Login</button>
+        </form>
+
+        <p id="loginResult"></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 StudySync</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
