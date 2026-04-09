@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudySync - Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>StudySync</h1>
+    </header>
+
+    <nav class="menu">
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
+        <a href="about.html">About Us</a>
+    </nav>
+
+    <section class="form-container">
+        <h2>Create Account</h2>
+
+        <form onsubmit="return validateSignup()">
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" placeholder="Enter your full name" required>
+
+            <label for="studentid">Student ID:</label>
+            <input type="text" id="studentid" placeholder="Enter your student ID" required>
+
+            <label for="course">Course:</label>
+            <input type="text" id="course" placeholder="Example: CPIS-358" required>
+
+            <label for="goal">Study Goal:</label>
+            <select id="goal" required>
+                <option value="">Select goal</option>
+                <option>Exam Preparation</option>
+                <option>Quiz Review</option>
+                <option>Assignment Help</option>
+                <option>Project Work</option>
+            </select>
+
+            <label for="time">Available Time:</label>
+            <input type="text" id="time" placeholder="Example: 6 PM - 8 PM" required>
+
+            <label>Preferred Mode:</label>
+            <div class="radio-group">
+                <input type="radio" name="mode" value="Online" required> Online
+                <input type="radio" name="mode" value="In-Person"> In-Person
+            </div>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter password" required>
+
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" placeholder="Confirm password" required>
+
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <p id="signupResult"></p>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

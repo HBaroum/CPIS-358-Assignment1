@@ -1,0 +1,176 @@
+/* General Style */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f7fb;
+    color: #333;
+}
+
+header {
+    background-color: #2d89ef;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.menu {
+    background-color: #1f5fa8;
+    text-align: center;
+    padding: 12px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+.hero {
+    position: relative;
+    background: url("https://via.placeholder.com/1200x400.png?text=StudySync+Banner") no-repeat center;
+    background-size: cover;
+    height: 300px;
+}
+
+.overlay-box {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    border-radius: 12px;
+    z-index: 2; /* Layering */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.image-section,
+.table-section,
+.article-section,
+.about-section,
+.form-container {
+    background-color: white;
+    width: 85%;
+    margin: 25px auto;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.main-image {
+    width: 100%;
+    max-width: 500px;
+    border: 3px solid #2d89ef;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+table, th, td {
+    border: 1px solid #999;
+}
+
+th {
+    background-color: #2d89ef;
+    color: white;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input,
+form select {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+}
+
+button {
+    padding: 12px;
+    border: none;
+    background-color: #1f5fa8;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #17497f;
+}
+
+.radio-group {
+    margin-bottom: 15px;
+}
+
+footer {
+    background-color: #2d89ef;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    margin-top: 20px;
+}
+
+/* General class */
+.highlight {
+    color: #2d89ef;
+    font-weight: bold;
+}
+/* تحسين الأزرار */
+button {
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Cards */
+.card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+/* Grid layout */
+.card-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+html {
+    scroll-behavior: smooth;
+}

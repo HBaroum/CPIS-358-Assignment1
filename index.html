@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudySync - Home</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Internal CSS -->
+    <style>
+        .welcome-box {
+            background-color: #ffffff;
+            padding: 20px;
+            margin: 20px auto;
+            width: 85%;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>StudySync</h1>
+        <p>Find students with the same course, goal, and free time</p>
+    </header>
+
+    <nav class="menu">
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
+        <a href="about.html">About Us</a>
+    </nav>
+
+<section class="hero">
+    <div class="overlay-box">
+        <h2 style="text-shadow: 4px 2px 8px cadetblue;">Find Your Perfect Study Partner</h2>
+        <p>Same course. Same goal. Same time.</p>
+        <button onclick="showWelcome()">Start Now</button>
+    </div>
+</section>
+
+    <section class="welcome-box">
+        <h2 id="idea">Project Idea</h2>
+        <p>
+            StudySync is a student-focused platform that helps university students find study partners
+            based on the same subject, study goal, and available time.
+        </p>
+
+        <h2>Benefits</h2>
+        <ul>
+            <li>Connect with classmates easily</li>
+            <li>Study online or face-to-face</li>
+            <li>Save time searching for partners</li>
+            <li>Improve motivation and performance</li>
+        </ul>
+
+        <h2>How It Works</h2>
+        <ol>
+            <li>Create an account</li>
+            <li>Select your course and study goal</li>
+            <li>Choose your available time</li>
+            <li>Find a matching study partner</li>
+        </ol>
+
+        <p><a href="#schedule">Go to Study Schedule Table</a></p>
+    </section>
+
+    <section id="schedule" class="table-section">
+        <h2>Sample Study Sessions</h2>
+        <table>
+            <tr>
+                <th>Course</th>
+                <th>Goal</th>
+                <th>Time</th>
+                <th>Mode</th>
+            </tr>
+            <tr>
+                <td>CPIS-358</td>
+                <td>Assignment Help</td>
+                <td>6:00 PM</td>
+                <td>Online</td>
+            </tr>
+            <tr>
+                <td>CPIS-250</td>
+                <td>Quiz Review</td>
+                <td>4:00 PM</td>
+                <td>In-Person</td>
+            </tr>
+            <tr>
+                <td>Database</td>
+                <td>Exam Preparation</td>
+                <td>8:00 PM</td>
+                <td>Online</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="article-section">
+        <article>
+            <h2>Why StudySync?</h2>
+            <p>
+                Many students struggle to find the right study partner. StudySync solves this problem
+                by making it easy to connect students with similar needs and schedules.
+            </p>
+        </article>
+<section class="card-container">
+    <a href="signup.html" class="card-link">
+        <div class="card">
+            <h3>Find Students</h3>
+            <p>Match with students in your course.</p>
+        </div>
+    </a>
+
+    <a href="#schedule" class="card-link">
+        <div class="card">
+            <h3>Flexible Time</h3>
+            <p>Choose your available study time.</p>
+        </div>
+    </a>
+
+    <a href="#study-mode" class="card-link">
+        <div class="card">
+            <h3>Online or In-Person</h3>
+            <p>Study anywhere you prefer.</p>
+        </div>
+    </a>
+</section>
+<section id="study-mode" class="table-section">
+    <h2>Study Modes</h2>
+
+    <div class="card-container">
+
+        <div class="card">
+            <h3>Online Study</h3>
+            <p>
+                Study with students remotely using tools like Zoom or Teams.
+                Flexible and convenient from anywhere.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>In-Person Study</h3>
+            <p>
+                Meet physically in the library or campus.
+                Better focus and direct interaction.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section class="image-section">
+        <p>For more info About Us page.</p>
+
+        <img src="photo1.jpg"
+     alt="Study Group"
+     usemap="#projectmap"
+     class="main-image">
+
+        <map name="projectmap">
+            <area shape="rect" coords="0,0,500,250" href="about.html" alt="About Us">
+        </map>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 StudySync. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
