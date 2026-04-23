@@ -22,16 +22,24 @@
     <section class="form-container">
         <h2>Login</h2>
 
+        <!-- (b) Form Validation — handled by loginMessage() in script.js -->
         <form onsubmit="return loginMessage()">
-            <label for="Student ID">Student ID:</label>
-            <input type="number" id="Student ID" placeholder="Enter your Student ID" required>
+            <label for="studentId">Student ID:</label>
+            <!-- Fixed: id updated to "studentId" to match script.js -->
+            <input type="number" id="studentId" placeholder="Enter your Student ID" required>
 
             <label for="password">Password:</label>
             <input type="password" id="password" placeholder="Enter your password" required>
 
-            <!-- Inline CSS -->
+            <!-- (d) Event: onclick also triggers showPasswordStrength on input -->
             <button type="submit" style="background-color: #2d89ef; color: white;">Login</button>
         </form>
+
+        <!-- (c) Dynamic Element — password strength bar -->
+        <div id="strengthBar" style="display:none; margin-top: -10px; margin-bottom: 12px;">
+            <div id="strengthFill" style="height:6px; border-radius:4px; width:0%; transition:0.3s; background:red;"></div>
+            <small id="strengthLabel" style="color:#888;"></small>
+        </div>
 
         <p id="loginResult"></p>
     </section>
@@ -41,5 +49,6 @@
     </footer>
 
     <script src="script.js"></script>
+   
 </body>
 </html>

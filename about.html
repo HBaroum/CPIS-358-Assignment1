@@ -4,12 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudySync - About Us</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Internal CSS -->
+    <style>
+        .about-box {
+            background-color: #ffffff;
+            width: 85%;
+            margin: 20px auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .highlight-box {
+            background-color: #eef4ff;
+            border-left: 5px solid #1e3a8a;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
 
     <header>
         <h1>About StudySync</h1>
+        <p>Learn more about our project, mission, and team</p>
     </header>
 
     <nav class="menu">
@@ -19,29 +42,82 @@
         <a href="about.html">About Us</a>
     </nav>
 
-    <section class="about-section">
+    <section class="about-box">
         <h2>Who We Are</h2>
         <p>
-            We are a group of students who created StudySync to help students find suitable
-            study partners based on their course, goal, and free time.
+            We are a group of students who created StudySync to help university students find
+            suitable study partners based on their course, study goal, and free time.
         </p>
 
-        <h2>Our Mission</h2>
-        <p>
-            Our mission is to make studying easier, more organized, and more collaborative
-            for university students.
-        </p>
+        <div class="highlight-box">
+            <h2>Our Mission</h2>
+            <p>
+                Our mission is to make studying easier, more organized, and more collaborative
+                for university students by offering a simple and useful platform.
+            </p>
+        </div>
+    </section>
 
+    <section class="image-section">
+        <h2>Project Image</h2>
+        <p>This image represents students studying together.</p>
+        <img src="photo1.jpg" alt="StudySync Teamwork" class="main-image"
+             style="border: 4px solid #1e3a8a; border-radius: 12px;">
+    </section>
+
+    <section class="about-box">
+        <article>
+            <h2>Why We Created This Project</h2>
+            <p>
+                Many students find it difficult to coordinate with classmates for study sessions.
+                Some students need help with assignments, while others want to prepare for quizzes
+                or exams. StudySync helps solve this problem by making the matching process easier.
+            </p>
+        </article>
+
+        <section>
+            <h2>Main Features</h2>
+            <ul>
+                <li>Easy student matching</li>
+                <li>Simple login and signup pages</li>
+                <li>Course and goal-based connection</li>
+                <li>Flexible online or in-person study options</li>
+            </ul>
+        </section>
+    </section>
+
+    <section class="table-section">
         <h2>Team Members</h2>
-        <ul>
-            <li>Student 1 Name: Maitham Abbas - ID: 2343441</li>
-            <li>Student 2 Name: Hashem Baroum - ID: 2236758</li>
-        </ul>
+        <table>
+            <tr>
+                <th>Student Name</th>
+                <th>Student ID</th>
+                <th>Role</th>
+            </tr>
+            <tr>
+                <td>Maitham Abbas</td>
+                <td>2343441</td>
+                <td>Frontend Developer</td>
+            </tr>
+            <tr>
+                <td>Hashem Baroum</td>
+                <td>2236758</td>
+                <td>Frontend Developer</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="about-box">
+        <h2>Project Goal</h2>
+        <p id="aboutMessage">
+            Our goal is to support students and improve teamwork in academic life.
+        </p>
     </section>
 
     <footer>
-        <p>&copy; 2026 StudySync</p>
+        <p>&copy; 2026 StudySync. All rights reserved.</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>

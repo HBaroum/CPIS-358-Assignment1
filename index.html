@@ -34,15 +34,14 @@
         <a href="about.html">About Us</a>
     </nav>
 
-<section class="hero">
-    <div class="overlay-box">
-        <h2 style="text-shadow: 4px 2px 8px cadetblue;">Find Your Perfect Study Partner</h2>
-        <p>Same course. Same goal. Same time.</p>
-        <button onclick="showWelcome()">Start Now</button>
-    </div>
-</section>
+    <!-- (a) Dynamic Picture & Text — hero slider built by JS -->
+    <section class="hero">
+        <!-- JavaScript will inject the slider content here -->
+    </section>
 
     <section class="welcome-box">
+        <!-- (c) Dynamic Elements — stats counter injected by JS here -->
+
         <h2 id="idea">Project Idea</h2>
         <p>
             StudySync is a student-focused platform that helps university students find study partners
@@ -96,6 +95,25 @@
                 <td>Online</td>
             </tr>
         </table>
+
+        <!-- (c) Dynamic Elements — Add Session form -->
+        <div style="margin-top:20px;">
+            <h3>➕ Add a Study Session</h3>
+            <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:10px;">
+                <input type="text" id="newCourse" placeholder="Course (e.g. CPIS-101)"
+                    style="padding:8px; border-radius:8px; border:1px solid #bbb; flex:1; min-width:120px;">
+                <input type="text" id="newGoal" placeholder="Goal"
+                    style="padding:8px; border-radius:8px; border:1px solid #bbb; flex:1; min-width:120px;">
+                <input type="text" id="newTime" placeholder="Time (e.g. 5 PM)"
+                    style="padding:8px; border-radius:8px; border:1px solid #bbb; flex:1; min-width:100px;">
+                <select id="newMode" style="padding:8px; border-radius:8px; border:1px solid #bbb; flex:1; min-width:120px;">
+                    <option value="Online">Online</option>
+                    <option value="In-Person">In-Person</option>
+                </select>
+                <button onclick="handleAddSession()" style="flex:0;">Add Row</button>
+            </div>
+            <p id="addSessionMsg" style="margin-top:8px; font-size:0.9rem;"></p>
+        </div>
     </section>
 
     <section class="article-section">
@@ -106,63 +124,58 @@
                 by making it easy to connect students with similar needs and schedules.
             </p>
         </article>
-<section class="card-container">
-    <a href="signup.html" class="card-link">
-        <div class="card">
-            <h3>Find Students</h3>
-            <p>Match with students in your course.</p>
-        </div>
-    </a>
 
-    <a href="#schedule" class="card-link">
-        <div class="card">
-            <h3>Flexible Time</h3>
-            <p>Choose your available study time.</p>
-        </div>
-    </a>
+        <section class="card-container">
+            <a href="signup.html" class="card-link">
+                <div class="card">
+                    <h3>Find Students</h3>
+                    <p>Match with students in your course.</p>
+                </div>
+            </a>
+            <a href="#schedule" class="card-link">
+                <div class="card">
+                    <h3>Flexible Time</h3>
+                    <p>Choose your available study time.</p>
+                </div>
+            </a>
+            <a href="#study-mode" class="card-link">
+                <div class="card">
+                    <h3>Online or In-Person</h3>
+                    <p>Study anywhere you prefer.</p>
+                </div>
+            </a>
+        </section>
 
-    <a href="#study-mode" class="card-link">
-        <div class="card">
-            <h3>Online or In-Person</h3>
-            <p>Study anywhere you prefer.</p>
-        </div>
-    </a>
-</section>
-<section id="study-mode" class="table-section">
-    <h2>Study Modes</h2>
+        <section id="study-mode" class="table-section">
+            <h2>Study Modes</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Online Study</h3>
+                    <p>Study with students remotely using tools like Zoom or Teams. Flexible and convenient from anywhere.</p>
+                </div>
+                <div class="card">
+                    <h3>In-Person Study</h3>
+                    <p>Meet physically in the library or campus. Better focus and direct interaction.</p>
+                </div>
+            </div>
+        </section>
 
-    <div class="card-container">
+        <section class="image-section">
+            <p>For more info visit our <a href="about.html">About Us</a> page.</p>
 
-        <div class="card">
-            <h3>Online Study</h3>
-            <p>
-                Study with students remotely using tools like Zoom or Teams.
-                Flexible and convenient from anywhere.
-            </p>
-        </div>
+            <img src="photo1.jpg"
+                 alt="Study Group"
+                 usemap="#projectmap"
+                 class="main-image"
+                 id="heroImage">
 
-        <div class="card">
-            <h3>In-Person Study</h3>
-            <p>
-                Meet physically in the library or campus.
-                Better focus and direct interaction.
-            </p>
-        </div>
+            <map name="projectmap">
+                <area shape="rect" coords="0,0,500,250" href="about.html" alt="About Us">
+            </map>
 
-    </div>
-</section>
-
-<section class="image-section">
-        <p>For more info About Us page.</p>
-
-        <img src="photo1.jpg"
-     alt="Study Group"
-     usemap="#projectmap"
-     class="main-image">
-
-        <map name="projectmap">
-            <area shape="rect" coords="0,0,500,250" href="about.html" alt="About Us">
-        </map>
+            
+            <p id="imageCaption" style="color:#555; margin-top:8px; font-style:italic;"></p>
+        </section>
     </section>
 
     <footer>
@@ -170,5 +183,41 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // (a) Dynamic Picture & Text — switch image and caption
+        function switchImage(src, caption) {
+            const img = document.getElementById("heroImage");
+            const cap = document.getElementById("imageCaption");
+            if (!img || !cap) return;
+            img.style.opacity = "0";
+            img.style.transition = "opacity 0.4s";
+            setTimeout(() => {
+                img.src = src;
+                cap.textContent = caption;
+                img.style.opacity = "1";
+            }, 400);
+        }
+
+        // (c) Dynamic Elements — Add session row with validation
+        function handleAddSession() {
+            const course = document.getElementById("newCourse").value.trim();
+            const goal   = document.getElementById("newGoal").value.trim();
+            const time   = document.getElementById("newTime").value.trim();
+            const mode   = document.getElementById("newMode").value;
+            const msg    = document.getElementById("addSessionMsg");
+
+            if (!course || !goal || !time) {
+                msg.textContent = "⚠️ Please fill in all fields.";
+                msg.style.color = "red";
+                return;
+            }
+            addSessionRow(course, goal, time, mode);
+            msg.textContent = "✅ Session added!";
+            msg.style.color = "green";
+            document.getElementById("newCourse").value = "";
+            document.getElementById("newGoal").value = "";
+            document.getElementById("newTime").value = "";
+        }
+    </script>
 </body>
 </html>

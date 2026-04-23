@@ -22,12 +22,19 @@
     <section class="form-container">
         <h2>Create Account</h2>
 
+        <!-- (b) Form Validation — validateSignup() in script.js handles all fields -->
         <form onsubmit="return validateSignup()">
+
             <label for="fullname">Full Name:</label>
-            <input type="text" id="fullname" placeholder="Enter your full name" required>
+            <!-- (d) Event: oninput checks for letters only live -->
+            <input type="text" id="fullname" placeholder="Enter your full name" required
+                   oninput="validateNameLive(this)">
+            <small id="nameHint" style="color:#888; margin-top:-10px; margin-bottom:8px; display:block;"></small>
 
             <label for="studentid">Student ID:</label>
-            <input type="text" id="studentid" placeholder="Enter your student ID" required>
+            <input type="text" id="studentid" placeholder="Enter your student ID (exactly 8 digits)" required
+                   oninput="validateIdLive(this)" maxlength="8">
+            <small id="idHint" style="color:#888; margin-top:-10px; margin-bottom:8px; display:block;"></small>
 
             <label for="course">Course:</label>
             <input type="text" id="course" placeholder="Example: CPIS-358" required>
@@ -42,26 +49,106 @@
             </select>
 
             <label for="time">Available Time:</label>
-            <input type="text" id="time" placeholder="Example: 6 PM - 8 PM" required>
+            <input type="text" id="time" placeholder="Example: 6 PM – 8 PM" required>
 
             <label>Preferred Mode:</label>
             <div class="radio-group">
-                <input type="radio" name="mode" value="Online" required> Online
+                <input type="radio" name="mode" value="Online" required> Online &nbsp;&nbsp;
                 <input type="radio" name="mode" value="In-Person"> In-Person
             </div>
 
             <label for="password">Password:</label>
-            <input type="password" id="password" placeholder="Enter password" required>
+            <input type="password" id="password" placeholder="Min 6 chars, include a number" required>
+
+            <!-- (c) Dynamic Element — strength bar injected below by JS -->
+            <div id="strengthBarSignup" style="margin-top:-10px; margin-bottom:12px; display:none;">
+                <div id="strengthFillSignup" style="height:6px; border-radius:4px; width:0%; transition:0.3s;"></div>
+                <small id="strengthLabelSignup" style="color:#888;"></small>
+            </div>
 
             <label for="confirmPassword">Confirm Password:</label>
-            <input type="password" id="confirmPassword" placeholder="Confirm password" required>
+            <input type="password" id="confirmPassword" placeholder="Re-enter password" required
+                   oninput="checkPasswordMatch()">
+            <small id="matchHint" style="margin-top:-10px; margin-bottom:8px; display:block;"></small>
 
             <button type="submit">Sign Up</button>
         </form>
 
         <p id="signupResult"></p>
+        <!-- Welcome card injected here by showWelcomeCard() -->
     </section>
 
     <script src="script.js"></script>
+    <script>
+        // (d) Functions & Events — live name validation
+        function validateNameLive(input) {
+            const hint = document.getElementById("nameHint");
+            if (!/^[a-zA-Z\s]*$/.test(input.value)) {
+                hint.textContent = "⚠️ Letters and spaces only.";
+                hint.style.color = "red";
+            } else {
+                hint.textContent = "";
+            }
+        }
+
+        // (d) Functions & Events — live ID validation
+        function validateIdLive(input) {
+            const hint = document.getElementById("idHint");
+            if (!/^\d*$/.test(input.value)) {
+                hint.textContent = "⚠️ Numbers only.";
+                hint.style.color = "red";
+            } else if (input.value.length > 0 && input.value.length !== 8) {
+                hint.textContent = "⚠️ Must be exactly 8 digits.";
+                hint.style.color = "orange";
+            } else if (input.value.length === 8) {
+                hint.textContent = "✅ Valid ID.";
+                hint.style.color = "green";
+            } else {
+                hint.textContent = "";
+            }
+        }
+
+        // (c) Dynamic Element — password match hint live
+        function checkPasswordMatch() {
+            const pw = document.getElementById("password").value;
+            const cpw = document.getElementById("confirmPassword").value;
+            const hint = document.getElementById("matchHint");
+            if (cpw === "") { hint.textContent = ""; return; }
+            if (pw === cpw) {
+                hint.textContent = "✅ Passwords match.";
+                hint.style.color = "green";
+            } else {
+                hint.textContent = "❌ Passwords do not match.";
+                hint.style.color = "red";
+            }
+        }
+
+        // (d) Event — password strength on signup page
+        document.getElementById("password").addEventListener("input", function () {
+            const bar = document.getElementById("strengthBarSignup");
+            const fill = document.getElementById("strengthFillSignup");
+            const label = document.getElementById("strengthLabelSignup");
+            const val = this.value;
+            bar.style.display = "block";
+
+            let strength = 0;
+            if (val.length >= 6) strength++;
+            if (/\d/.test(val)) strength++;
+            if (/[A-Z]/.test(val)) strength++;
+            if (/[^a-zA-Z0-9]/.test(val)) strength++;
+
+            const levels = [
+                { pct: "25%", color: "red",    text: "Weak" },
+                { pct: "50%", color: "orange", text: "Fair" },
+                { pct: "75%", color: "#f0c040",text: "Good" },
+                { pct: "100%",color: "green",  text: "Strong" }
+            ];
+            const lvl = levels[Math.max(strength - 1, 0)];
+            fill.style.width = lvl.pct;
+            fill.style.background = lvl.color;
+            label.textContent = "Strength: " + lvl.text;
+            label.style.color = lvl.color;
+        });
+    </script>
 </body>
 </html>

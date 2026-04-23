@@ -1,22 +1,50 @@
-/* General Style */
+/* =========================
+   General Style
+========================= */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     background-color: #f4f7fb;
     color: #333;
+    line-height: 1.6;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+/* =========================
+   Header
+========================= */
 header {
-    background-color: #2d89ef;
+    background: linear-gradient(to right, #2d89ef, #1f5fa8);
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 25px 15px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
 }
 
+header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+header p {
+    margin-top: 8px;
+    font-size: 16px;
+}
+
+/* =========================
+   Navigation Menu
+========================= */
 .menu {
     background-color: #1f5fa8;
     text-align: center;
-    padding: 12px;
+    padding: 14px;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Layering technique */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
 .menu a {
@@ -24,30 +52,46 @@ header {
     text-decoration: none;
     margin: 0 15px;
     font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: 0.3s;
 }
 
 .menu a:hover {
-    text-decoration: underline;
+    background-color: white;
+    color: #1f5fa8;
 }
 
+/* =========================
+   Hero Section
+========================= */
 .hero {
     position: relative;
     background: url("https://via.placeholder.com/1200x400.png?text=StudySync+Banner") no-repeat center;
     background-size: cover;
-    height: 300px;
+    height: 320px;
 }
 
 .overlay-box {
     position: absolute;
     top: 50px;
     left: 50px;
-    background-color: rgba(255, 255, 255, 0.85);
-    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 22px;
     border-radius: 12px;
-    z-index: 2; /* Layering */
+    z-index: 2;
+    max-width: 420px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+.overlay-box h2 {
+    margin-top: 0;
+    color: #1f5fa8;
+}
+
+/* =========================
+   Main Containers
+========================= */
 .image-section,
 .table-section,
 .article-section,
@@ -56,25 +100,46 @@ header {
     background-color: white;
     width: 85%;
     margin: 25px auto;
-    padding: 20px;
+    padding: 22px;
     border-radius: 12px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
+.welcome-box,
+.about-box {
+    background-color: white;
+    width: 85%;
+    margin: 25px auto;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================
+   Images
+========================= */
 .main-image {
     width: 100%;
     max-width: 500px;
     border: 3px solid #2d89ef;
     border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
 }
 
+/* =========================
+   Tables
+========================= */
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 15px;
+    overflow: hidden;
+    border-radius: 10px;
 }
 
-table, th, td {
+table,
+th,
+td {
     border: 1px solid #999;
 }
 
@@ -83,14 +148,27 @@ th {
     color: white;
 }
 
-th, td {
-    padding: 10px;
+th,
+td {
+    padding: 12px;
     text-align: center;
 }
 
+tr:nth-child(even) {
+    background-color: #f8fbff;
+}
+
+/* =========================
+   Forms
+========================= */
 form {
     display: flex;
     flex-direction: column;
+}
+
+form label {
+    margin-bottom: 6px;
+    font-weight: bold;
 }
 
 form input,
@@ -99,8 +177,28 @@ form select {
     padding: 10px;
     border: 1px solid #bbb;
     border-radius: 8px;
+    font-size: 15px;
 }
 
+form input:focus,
+form select:focus {
+    outline: none;
+    border-color: #2d89ef;
+    box-shadow: 0 0 5px rgba(45, 137, 239, 0.35);
+}
+
+.radio-group {
+    margin-bottom: 15px;
+}
+
+.radio-group input,
+.radio-group label {
+    margin-right: 8px;
+}
+
+/* =========================
+   Buttons
+========================= */
 button {
     padding: 12px;
     border: none;
@@ -109,54 +207,26 @@ button {
     border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
-}
-
-button:hover {
-    background-color: #17497f;
-}
-
-.radio-group {
-    margin-bottom: 15px;
-}
-
-footer {
-    background-color: #2d89ef;
-    color: white;
-    text-align: center;
-    padding: 12px;
-    margin-top: 20px;
-}
-
-/* General class */
-.highlight {
-    color: #2d89ef;
-    font-weight: bold;
-}
-/* تحسين الأزرار */
-button {
+    margin-top: 8px;
     transition: 0.3s;
 }
 
 button:hover {
-    transform: scale(1.05);
+    background-color: #17497f;
+    transform: scale(1.04);
 }
 
-/* Cards */
-.card {
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    margin: 10px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-}
-
-/* Grid layout */
+/* =========================
+   Cards
+========================= */
 .card-container {
     display: flex;
     gap: 15px;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 20px;
 }
+
 .card-link {
     text-decoration: none;
     color: inherit;
@@ -164,13 +234,92 @@ button:hover {
 }
 
 .card {
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    margin: 10px;
+    width: 250px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
     cursor: pointer;
     transition: 0.3s;
+    border: 1px solid #e2e8f0;
 }
 
 .card:hover {
     transform: translateY(-5px);
 }
-html {
-    scroll-behavior: smooth;
+
+.card h3 {
+    color: #1f5fa8;
+    margin-top: 0;
+}
+
+/* =========================
+   Utility Classes
+========================= */
+.highlight {
+    color: #2d89ef;
+    font-weight: bold;
+}
+
+.section-note,
+.login-note,
+.signup-note,
+.highlight-box,
+.info-box,
+.tips-box {
+    background-color: #eef4ff;
+    border-left: 5px solid #1e3a8a;
+    padding: 14px;
+    margin-top: 15px;
+    border-radius: 8px;
+}
+
+/* =========================
+   Footer
+========================= */
+footer {
+    background-color: #2d89ef;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    margin-top: 20px;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================
+   Responsive Design
+========================= */
+@media (max-width: 768px) {
+    .overlay-box {
+        left: 20px;
+        right: 20px;
+        top: 30px;
+        max-width: unset;
+    }
+
+    .image-section,
+    .table-section,
+    .article-section,
+    .about-section,
+    .form-container,
+    .welcome-box,
+    .about-box {
+        width: 92%;
+        padding: 18px;
+    }
+
+    .menu a {
+        display: inline-block;
+        margin: 6px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    header h1 {
+        font-size: 26px;
+    }
 }
